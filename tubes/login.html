@@ -12,23 +12,41 @@
 <body>
     <nav class="navbar  w-100 p-2">
         <div class="container-fluid">
-          <span class="navbar-brand mb-0 h1 fw-bold fst-italic text-white">Pasar Tel-U Login</span>
+          <a class="navbar-brand fw-bold fst-italic text-white" href="main.html">Pasar Tel-U</a>
         </div>
       </nav>
 
       <div class="con">
         <img src="image/telu.png" alt="logo telkom">
         <div class="formlogin">
-          <form class="form">
+          <form class="form" onsubmit="return verifyPassword()">
             <label for="email">Email:</label><br>
             <input type="email" id="email" name="email"><br>
             <label for="password">Password:</label><br>
-            <input type="password" id="password" name="password"><br>
-            <button>submit</button>
+            <input type="password" id="password" name="password" value=""><br>
+            <span id = "message" style="color:red"> </span> <br>
+            <input type = "submit" value = "Submit"> 
+            <button type = "reset" value = "Reset" >Reset</button>   
           </form>
         </div>
         
 
       </div>
+      <script>  
+        function verifyPassword() {  
+          var pw = document.getElementById("password").value;  
+          //cek password kosong  
+          if(pw == "") {  
+             document.getElementById("message").innerHTML = "**Isi Password!";  
+             return false;  
+          }  
+           
+         //cek password kurang dari 8  
+          if(pw.length < 8) {  
+             document.getElementById("message").innerHTML = "**Password Harus 8 Karakter";  
+             return false;  
+          }   
+        }  
+        </script>  
 </body>
 </html>
